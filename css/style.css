@@ -1,0 +1,75 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
+main{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+
+
+table, th, td{
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+.paciente-invalido{
+    background-color: rgb(172, 59, 59);
+    color: white;
+}
+
+.container{
+    padding: 10px;
+    margin: auto;
+    width: 30%;
+
+}
+
+.grupo{
+    padding: 10px;
+}
+
+button, input{
+    padding: 10px;
+}
+
+input{
+    width:25em;
+}
+
+#mensagens-erro{
+    color: red;
+    list-style: none;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.fadeOut{
+    opacity: 0;
+    transition: 0,5s;
+}
+
+#filtrar-tabela{
+    width: 200px;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+header{
+    margin: 10px;
+}
+
+.invisivel{
+    display: none;
+}
+
+.visivel{
+    display: block;
+}
+
