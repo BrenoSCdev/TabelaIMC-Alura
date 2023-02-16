@@ -1,13 +1,11 @@
-var filtro = document.querySelector("#filtrar-tabela");
-var pacientes = document.querySelectorAll(".paciente")
-filtro.addEventListener("input", function(){
-
-    if ( this.value.length > 0 ){
+const filtro = document.getElementById("filtrar-tabela")
+filtro.addEventListener("input", () => {
+    if ( filtro.value.length > 0 ){
         for (i = 0; i < pacientes.length; i++){
-            var paciente = pacientes[i];
-            var tdNome = paciente.querySelector(".info-nome");
-            var nome = tdNome.textContent;
-            var expressao = new RegExp(this.value, "i");
+            let paciente = pacientes[i]
+            let tdNome = paciente.querySelector(".info-nome")
+            let nome = tdNome.textContent
+            let expressao = new RegExp(filtro.value, "i")
             if(!expressao.test(nome)){
                 paciente.classList.add("invisivel")
             } else{
@@ -16,10 +14,11 @@ filtro.addEventListener("input", function(){
         }
     }else{
         for (i = 0; i < pacientes.length; i++){
-            var paciente = pacientes[i];
+            let paciente = pacientes[i];
             paciente.classList.remove("invisivel")
         }
     }
 
 
 })
+

@@ -1,40 +1,39 @@
 const botaoAdcionar = document.getElementById("adicionar-paciente"); 
 botaoAdcionar.addEventListener("click",(event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    var form = document.querySelector("#form-adiciona"); //Extraindo informações do paciente do form
+    let form = document.getElementById("form-adiciona"); //Extraindo informações do paciente do form
     
-    var paciente = obtemPacienteForm(form);
+    let paciente = obtemPacienteForm(form)
 
 
 
-    var erros = validaPaciente(paciente);
-    console.log(erros);
+    let erros = validaPaciente(paciente)
     if(erros.length > 0){
-        exibeMensagensErro(erros);
-        return;
+        exibeMensagensErro(erros)
+        return
     }
 
-    adicionaPaciente(paciente);
+    adicionaPaciente(paciente)
 
-    form.reset();
+    form.reset()
 
-    var mensagensErro = document.querySelector("#mensagens-erro");
-    mensagensErro.innerHTML = "";
+    let mensagensErro = document.getElementById("mensagens-erro")
+    mensagensErro.innerHTML = ""
    
     
 
-});
+})
 
 const adicionaPaciente = (paciente) => {
-    var pacienteTR = montaTr(paciente);
-    var tabela = document.getElementById("tabela-pacientes");
-    tabela.appendChild(pacienteTR);
+    let pacienteTR = montaTr(paciente)
+    let tabela = document.getElementById("tabela-pacientes")
+    tabela.appendChild(pacienteTR)
 }
 
 const obtemPacienteForm = (form) => {
 
-    var paciente = {
+    let paciente = {
         nome: form.nome.value,
         peso: form.peso.value,
         altura: form.altura.value,
@@ -45,29 +44,27 @@ const obtemPacienteForm = (form) => {
 }
 
 const montaTr = (paciente) => {
-    var pacienteTR = document.createElement("tr");
-    pacienteTR.classList.add("paciente");
+    let pacienteTR = document.createElement("tr")
+    pacienteTR.classList.add("paciente")
 
-    pacienteTR.appendChild(montaTd(paciente.nome, "info-nome"));
-    pacienteTR.appendChild(montaTd(paciente.peso, "info-peso"));
-    pacienteTR.appendChild(montaTd(paciente.altura, "info-altura"));
-    pacienteTR.appendChild(montaTd(paciente.gordura, "info-gordura"));
-    pacienteTR.appendChild(montaTd(paciente.imc, "info-imc"));
-
-    return pacienteTR;
+    pacienteTR.appendChild(montaTd(paciente.nome, "info-nome"))
+    pacienteTR.appendChild(montaTd(paciente.peso, "info-peso"))
+    pacienteTR.appendChild(montaTd(paciente.altura, "info-altura"))
+    pacienteTR.appendChild(montaTd(paciente.gordura, "info-gordura"))
+    pacienteTR.appendChild(montaTd(paciente.imc, "info-imc"))
+    return pacienteTR
 }
     
 const montaTd= (dado, classe) => {
-    var td = document.createElement("td");
+    let td = document.createElement("td")
     td.textContent = dado;
-    td.classList.add(classe);
-
-    return td;
+    td.classList.add(classe)
+    return td
 }
 
 const validaPaciente = (paciente) => {
 
-    var erros = [];
+    let erros = []
 
     if(paciente.nome == 0){
         erros.push("Nome não identificado")
@@ -100,11 +97,11 @@ const validaPaciente = (paciente) => {
 
 
 const exibeMensagensErro= (erros) => {
-    var ul = document.getElementById("mensagens-erro");
-    ul.innerHTML = "";
+    let ul = document.getElementById("mensagens-erro")
+    ul.innerHTML = ""
     erros.forEach(function(erro){
-        var li = document.createElement("li");
-        li.textContent = erro;
-        ul.appendChild(li);
+        let li = document.createElement("li");
+        li.textContent = erro
+        ul.appendChild(li)
     })
 }
