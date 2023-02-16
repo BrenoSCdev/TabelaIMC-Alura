@@ -1,5 +1,5 @@
-var botaoAdcionar = document.querySelector("#adicionar-paciente");
-botaoAdcionar.addEventListener("click",function(event){
+const botaoAdcionar = document.getElementById("adicionar-paciente"); 
+botaoAdcionar.addEventListener("click",(event) => {
     event.preventDefault();
 
     var form = document.querySelector("#form-adiciona"); //Extraindo informações do paciente do form
@@ -26,13 +26,13 @@ botaoAdcionar.addEventListener("click",function(event){
 
 });
 
-function adicionaPaciente(paciente){
+const adicionaPaciente = (paciente) => {
     var pacienteTR = montaTr(paciente);
-    var tabela = document.querySelector("#tabela-pacientes");
+    var tabela = document.getElementById("tabela-pacientes");
     tabela.appendChild(pacienteTR);
 }
 
-function obtemPacienteForm(form){
+const obtemPacienteForm = (form) => {
 
     var paciente = {
         nome: form.nome.value,
@@ -44,7 +44,7 @@ function obtemPacienteForm(form){
     return paciente;
 }
 
-function montaTr(paciente){
+const montaTr = (paciente) => {
     var pacienteTR = document.createElement("tr");
     pacienteTR.classList.add("paciente");
 
@@ -57,7 +57,7 @@ function montaTr(paciente){
     return pacienteTR;
 }
     
-function montaTd(dado, classe){
+const montaTd= (dado, classe) => {
     var td = document.createElement("td");
     td.textContent = dado;
     td.classList.add(classe);
@@ -65,7 +65,7 @@ function montaTd(dado, classe){
     return td;
 }
 
-function validaPaciente(paciente){
+const validaPaciente = (paciente) => {
 
     var erros = [];
 
@@ -99,8 +99,8 @@ function validaPaciente(paciente){
 }
 
 
-function exibeMensagensErro(erros){
-    var ul = document.querySelector("#mensagens-erro");
+const exibeMensagensErro= (erros) => {
+    var ul = document.getElementById("mensagens-erro");
     ul.innerHTML = "";
     erros.forEach(function(erro){
         var li = document.createElement("li");

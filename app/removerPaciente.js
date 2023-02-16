@@ -1,9 +1,9 @@
-var tabela = document.querySelector("table");
+const tabela = document.querySelector("table");
 
-tabela.addEventListener("dblclick",function(event){
+tabela.addEventListener("dblclick",(event) => {
 
     event.target.parentNode.classList.add("fadeOut")
-    setTimeout(function(){
+    setTimeout(() => {
         event.target.parentNode.remove();
     }, 400)
 
